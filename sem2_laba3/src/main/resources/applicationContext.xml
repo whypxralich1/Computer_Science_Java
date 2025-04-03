@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Определяем бины категорий машин -->
+    <bean id="sedan" class="com.example.demo.Sedan"/>
+    <bean id="suv" class="com.example.demo.SUV"/>
+    <bean id="coupe" class="com.example.demo.Coupe"/>
+
+    <!-- Определяем бины отображателя -->
+    <bean id="sedanDisplay" class="com.example.demo.VehicleDisplay">
+        <constructor-arg ref="sedan"/>
+    </bean>
+
+    <bean id="suvDisplay" class="com.example.demo.VehicleDisplay">
+        <constructor-arg ref="suv"/>
+    </bean>
+
+    <bean id="coupeDisplay" class="com.example.demo.VehicleDisplay">
+        <constructor-arg ref="coupe"/>
+    </bean>
+
+</beans>

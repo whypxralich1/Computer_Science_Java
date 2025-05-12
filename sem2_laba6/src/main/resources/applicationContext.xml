@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="suv" class="com.example.demo.SUV" init-method="init" destroy-method="destroy"/>
+    <bean id="sedan" class="com.example.demo.Sedan" init-method="init" destroy-method="destroy"/>
+    <bean id="coupe" class="com.example.demo.Coupe" init-method="init" destroy-method="destroy"/>
+
+    <bean id="vehicleManager" class="com.example.demo.VehicleManager">
+        <constructor-arg ref="sedan"/>
+    </bean>
+
+    <bean id="vehicleDisplay" class="com.example.demo.VehicleDisplay">
+        <constructor-arg ref="vehicleManager"/>
+    </bean>
+
+</beans>

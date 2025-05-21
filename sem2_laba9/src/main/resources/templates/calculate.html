@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Калькулятор</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<h1>Результат операции</h1>
+<div th:if="${result}">
+  <p th:text="${result}"></p>
+</div>
+<div th:if="${error}">
+  <p style="color: red;" th:text="${error}"></p>
+</div>
+<a href="/cars">Вернуться к автомобилям</a>
+</body>
+</html>

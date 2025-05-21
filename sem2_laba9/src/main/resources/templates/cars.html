@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Аутомобили</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<h1>Список автомобилей</h1>
+
+<ul>
+    <li th:each="car, iterStat : ${cars}">
+        <a th:href="@{'/cars/' + ${iterStat.index}}" th:text="${car.brand} + ' - ' + ${car.horsePower}"></a>
+    </li>
+</ul>
+
+<a href="/cars/add">Добавить новый автомобиль</a><br/>
+<a href="/calculate">Вернуться к калькулятору</a>
+</body>
+</html>

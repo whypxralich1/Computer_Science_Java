@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Аутомобили</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<h1>Информация</h1>
+<h2>BMW E30</h2>
+<p th:utext="${bmwInfo}"></p>
+<a th:href="@{/cars/bmw}">Подробнее о BMW E30</a>
+
+<h2>Dodge Challenger</h2>
+<p th:utext="${dodgeInfo}"></p>
+<a th:href="@{/cars/dodge}">Подробнее о Dodge Challenger</a>
+
+<a href="/calculate">Вернуться к калькулятору</a>
+</body>
+</html>

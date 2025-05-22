@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${isNew} ? 'Добавить автомобиль' : 'Редактировать автомобиль'">Форма</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<h1 th:text="${isNew} ? 'Добавить автомобиль' : 'Редактировать автомобиль'"></h1>
+<form th:action="${isNew} ? @{/cars/add} : @{/cars/{index}(index=${index})}" th:object="${car}" method="post">
+  <input type="hidden" name="_method" th:value="${isNew} ? 'post' : 'patch'"/>
+  <label>Марка: <input type="text" th:field="*{brand}" /></label><br/>
+  <label>Модель: <input type="text" th:field="*{model}" /></label><br/>
+  <label>Модификация: <input type="text" th:field="*{horsePower}" /></label><br/>
+  <label>Тип двигателя: <input type="text" th:field="*{engineType}" /></label><br/>
+  <label>Пробег: <input type="number" th:field="*{mileage}" /></label><br/>
+  <label>Год выпуска: <input type="number" th:field="*{year}" /></label><br/>
+  <label>Поколение: <input type="text" th:field="*{generation}" /></label><br/>
+  <label>Цвет: <input type="text" th:field="*{color}" /></label><br/>
+  <label>Объем двигателя: <input type="number" step="0.1" th:field="*{engineVolume}" /></label><br/>
+  <label>Коробка передач: <input type="text" th:field="*{transmission}" /></label><br/>
+  <label>Цена: <input type="number" th:field="*{price}" /></label><br/>
+  <button type="submit" th:text="${isNew} ? 'Добавить' : 'Сохранить'"></button>
+</form>
+<a href="/cars">Вернуться к списку автомобилей</a>
+</body>
+</html>

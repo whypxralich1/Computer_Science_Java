@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Детали автомобиля</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<h1>Детали автомобиля</h1>
+<div th:if="${car}">
+    <p>Марка: <span th:text="${car.brand}"></span></p>
+    <p>Модель: <span th:text="${car.model}"></span></p>
+    <p>Модификация: <span th:text="${car.horsePower}"></span></p>
+    <p>Тип двигателя: <span th:text="${car.engineType}"></span></p>
+    <p>Пробег: <span th:text="${car.mileage}"></span> км</p>
+    <p>Год выпуска: <span th:text="${car.year}"></span></p>
+    <p>Поколение: <span th:text="${car.generation}"></span></p>
+    <p>Цвет: <span th:text="${car.color}"></span></p>
+    <p>Объем двигателя: <span th:text="${car.engineVolume}"></span> л</p>
+    <p>Коробка передач: <span th:text="${car.transmission}"></span></p>
+    <p>Тип кузова: <span th:text="${car.type}"></span></p>
+    <p>Цена: <span th:text="${car.price}"></span> руб.</p>
+</div>
+<a th:href="@{'/cars/' + ${index} + '/edit'}">Редактировать</a>
+
+<form th:action="@{'/cars/' + ${index}}" method="post" style="display:inline;">
+    <input type="hidden" name="_method" value="delete" />
+    <button type="submit" onclick="return confirm('Удалить этот автомобиль?')">Удалить</button>
+</form>
+
+<br/><a href="/cars">Вернуться к списку автомобилей</a>
+</body>
+</html>
